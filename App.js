@@ -1,20 +1,47 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import StackNavigator from "./navigation/StackNavigation1";
+import StackNavigator2 from "./navigation/StackNavigation2";
+const Stack = createNativeStackNavigator();
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+class App extends Component {
+  state = {
+    username: null,
+  };
+
+  constructor(props) {
+    super(props);
+    this.getData();
+  }
+
+  getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("user");
+      if (value !== null) {
+        this.setState({ username: value });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  render() {
+    if (this.state.username !== null) {
+      return (
+        <NavigationContainer>
+          <StackNavigator />
+        </NavigationContainer>
+      );
+    } else {
+      return (
+        <NavigationContainer>
+          <StackNavigator2 />
+        </NavigationContainer>
+      );
+    }
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
