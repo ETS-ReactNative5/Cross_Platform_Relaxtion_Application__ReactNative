@@ -42,7 +42,7 @@ class CheckInScreen extends Component {
       var date = moment().format("YYYY-MM-DD");
       date += "-AFFIRMATION";
       const value = await AsyncStorage.getItem(date);
-      await AsyncStorage.removeItem(date);
+      // await AsyncStorage.removeItem(date);
       if (value !== null) {
         this.setState({ affirmation: value });
       }
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
   },
   affirmationsContainer: {
     width: "90%",
-    height: "40%",
+    height: "43%",
     borderRadius: 15,
     backgroundColor: "#39319D",
     top: "5%",

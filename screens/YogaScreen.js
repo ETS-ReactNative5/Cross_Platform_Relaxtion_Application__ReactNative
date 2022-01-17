@@ -8,20 +8,18 @@ import {
   Animated,
   ImageBackground,
 } from "react-native";
-import { Video } from "react-native-video";
-import video2 from "../assets/Yoga.mp4";
+// import Video from "react-native-video";
+// import video2 from "../assets/Yoga.mp4";
 export default function YogaScreen() {
   return (
     <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
       <Text>My Video</Text>
-      <Video
-        source={video2}
-        style={{ width: 300, height: 300 }}
-        controls={true}
+      {/* <Video
+        source={{ uri: require("../assets/Yoga.mp4") }} // Can be a URL or a local file.
         ref={(ref) => {
           this.player = ref;
         }}
-      />
+      /> */}
     </View>
   );
 }

@@ -25,6 +25,9 @@ export default function Register({ navigation }) {
   function saveUser() {
     let user = text;
     AsyncStorage.setItem("user", user);
+    AsyncStorage.setItem("currentImage", "./assets/avatar0.png");
+    AsyncStorage.setItem("checkInAchievement-Current", "10");
+    AsyncStorage.setItem("affirmationsAchievement", "10");
   }
   return (
     <ImageBackground

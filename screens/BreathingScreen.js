@@ -14,7 +14,6 @@ const circleWidth = width / 2;
 export default function BreathingScreen() {
   const move = useRef(new Animated.Value(0)).current;
   const textOpacity = useRef(new Animated.Value(1)).current;
-  console.log(textOpacity);
   Animated.loop(
     Animated.sequence([
       Animated.parallel([
@@ -71,11 +70,11 @@ export default function BreathingScreen() {
         >
           <Text
             style={{
-              fontSize: 20,
-              fontWeight: "600",
+              fontSize: 24,
+              fontWeight: "800",
             }}
           >
-            Inhale
+            Inhale.
           </Text>
         </Animated.View>
         <Animated.View
@@ -90,11 +89,11 @@ export default function BreathingScreen() {
         >
           <Text
             style={{
-              fontSize: 20,
-              fontWeight: "600",
+              fontSize: 24,
+              fontWeight: "800",
             }}
           >
-            Exhale
+            Exhale.
           </Text>
         </Animated.View>
         {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => {

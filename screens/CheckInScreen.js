@@ -65,7 +65,7 @@ class CheckInScreen extends Component {
       var date = moment().format("YYYY-MM-DD");
       date += "-CHECKIN";
       const value = await AsyncStorage.getItem(date);
-      await AsyncStorage.removeItem(date);
+      // await AsyncStorage.removeItem(date);
       if (value !== null) {
         this.setState({ todaysCheckIn: value });
       }
@@ -139,7 +139,7 @@ class CheckInScreen extends Component {
     alert("Sets " + date + " " + checkIn.toString());
     this.setState({ todaysCheckIn: checkIn.toString() });
     this.setState({ modalVisible: false });
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   render() {
@@ -195,7 +195,7 @@ class CheckInScreen extends Component {
               datasets: [
                 {
                   // data: this.state.values,
-                  data: [1, 2, 4, 5],
+                  data: [1, 2, 4, 2],
                   strokeWidth: 4, // optional
                 },
               ],
