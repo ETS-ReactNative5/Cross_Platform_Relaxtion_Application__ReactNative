@@ -168,7 +168,7 @@ class CheckInScreen extends Component {
                   multiline={true}
                   textAlignVertical={"top"}
                   maxLength={150}
-                  numberOfLines={9}
+                  numberOfLines={10}
                   placeholder="Enter your affirmation here"
                   onChangeText={(text) => this.setState({ text })}
                   value={this.state.text}
@@ -176,7 +176,7 @@ class CheckInScreen extends Component {
                 ></TextInput>
               </View>
               <TouchableWithoutFeedback onPress={this.saveAffirmation}>
-                <Text style={styles.button}>Submit</Text>
+                <Text style={styles.button}>SUBMIT</Text>
               </TouchableWithoutFeedback>
             </ScrollView>
           ) : (
@@ -281,13 +281,13 @@ const styles = StyleSheet.create({
     height: 40,
     width: "90%",
     borderRadius: 15,
-    color: "white",
+    color: "#333478",
     fontSize: 18,
-    backgroundColor: "#171B7A",
+    backgroundColor: "#fee486",
     alignSelf: "center",
     textAlign: "center",
     // justifyContent: "center",
-    // top: "5%",
+    top: "5%",
     textAlignVertical: "center",
     // flex: 1,
     justifyContent: "flex-end",

@@ -53,28 +53,39 @@ export default function BreathingScreen() {
     outputRange: [1, 0],
   });
   return (
-    <ImageBackground
-      source={require("../assets/signIn2.jpg")}
-      style={styles.image}
-    >
+    <ImageBackground source={require("../assets/3.jpg")} style={styles.image}>
+      <Text
+        style={{
+          position: "absolute",
+          top: 50,
+          marginHorizontal: "29%",
+          color: "white",
+          fontSize: 26,
+          fontWeight: "bold",
+        }}
+      >
+        Follow Along
+      </Text>
       <View style={styles.container}>
         <Animated.View
           style={{
             width: circleWidth,
             height: circleWidth,
             ...StyleSheet.absoluteFill,
-            alignItems: "center",
+            // alignItems: "center",
             justifyContent: "center",
             opacity: textOpacity,
           }}
         >
           <Text
             style={{
+              // alignSelf: "center",
+              marginHorizontal: "33%",
               fontSize: 24,
               fontWeight: "800",
             }}
           >
-            Inhale.
+            Inhale
           </Text>
         </Animated.View>
         <Animated.View
@@ -105,8 +116,8 @@ export default function BreathingScreen() {
             <Animated.View
               key={item}
               style={{
-                opacity: 0.1,
-                backgroundColor: "blue",
+                opacity: 0.15,
+                backgroundColor: "purple",
                 width: circleWidth,
                 height: circleWidth,
                 borderRadius: circleWidth / 2,

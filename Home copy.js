@@ -9,12 +9,10 @@ import {
   Dimensions,
   Modal,
   FlatList,
-  Button,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ProgressChart } from "react-native-chart-kit";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import moment from "moment";
 
 class Home extends Component {
   constructor(props) {
@@ -38,8 +36,6 @@ class Home extends Component {
         require("./assets/avatar5.png"),
       ],
       image: "",
-      showTimePicker: false,
-      timeReminderSet: true,
     };
   }
 
@@ -118,10 +114,6 @@ class Home extends Component {
     this.setState({ image: img });
   };
 
-  navigateHelpScreen = async () => {
-    this.props.navigation.navigate("Help");
-  };
-
   render() {
     var numberToDisplay = 0;
     var numberOfAchievement = 0;
@@ -133,11 +125,8 @@ class Home extends Component {
       numberOfAchievement = this.state.affirmationsAchievement;
     }
     const data = {
-      data: [0.3, 0.3, 0.3],
+      data: [0.2],
     };
-    var time = moment().toDate();
-    time.setHours(10);
-    time.setMinutes(0);
     return (
       <View style={styles.container}>
         <Image style={styles.image} source={require("./assets/iconTop.png")} />
@@ -155,6 +144,7 @@ class Home extends Component {
             transparent={true}
             visible={this.state.alarmModalVisible}
             onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
               setAlarm(!this.alarmModalVisible);
             }}
           >
@@ -200,80 +190,21 @@ class Home extends Component {
                   fontWeight: "bold",
                   top: "5%",
                   // alignSelf: "center",
-                  marginHorizontal: "05%",
-                  // bottom: "5%",
-                  textAlign: "center",
+                  marginHorizontal: "20%",
                 }}
               >
-                Would you like to set a reminder for excercising or breathing
-                excercises?
+                Would you like to change your picture?
               </Text>
-              {this.state.timeReminderSet && (
-                <View
-                  style={{
-                    justifyContent: "center",
-                    top: "25%",
-                  }}
-                >
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      fontSize: 20,
-                      color: "white",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Current Time Set
-                  </Text>
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      fontSize: 34,
-                      color: "white",
-                      fontWeight: "bold",
-                      top: 10,
-                    }}
-                  >
-                    {moment(time).format("HH:mmA")}
-                  </Text>
-                </View>
-              )}
-              <TouchableHighlight
-                onPress={() => this.setState({ showTimePicker: true })}
-                style={{
-                  alignSelf: "center",
-                  marginBottom: 50,
-                  backgroundColor: "#fee486",
-                  height: 45,
-                  width: "90%",
-                  top: "85%",
-                  borderRadius: 20,
-                  // alignItems: "center",
-                  position: "absolute",
-                  justifyContent: "center",
-                }}
-              >
-                <Text
-                  style={{
-                    marginHorizontal: "32%",
-                    fontSize: 16,
-                    color: "#333478",
-                    fontWeight: "bold",
-                  }}
-                >
-                  SET REMINDER
-                </Text>
-              </TouchableHighlight>
-              {this.state.showTimePicker && (
-                <DateTimePicker
-                  testID="dateTimePicker"
-                  value={time}
-                  mode="time"
-                  // is24Hour={true}
-                  display="default"
-                  onChange={() => this.setState({ showTimePicker: false })}
-                />
-              )}
+              <Text>Hi</Text>
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={new Date()}
+                mode="time"
+                // is24Hour={true}
+                display="default"
+                // onChange={onChange}
+              />
+              <Text>Hi</Text>
             </View>
           </Modal>
           <TouchableHighlight
@@ -294,42 +225,8 @@ class Home extends Component {
                 width: 40,
                 // left: "35%",
                 position: "absolute",
-                tintColor: "white",
               }}
               source={require("./assets/alarm.png")}
-            />
-          </TouchableHighlight>
-        </View>
-        <View
-          style={{
-            alignSelf: "flex-start",
-            alignItems: "center",
-            left: "5%",
-            position: "absolute",
-            marginTop: Dimensions.get("window").height * 0.2,
-          }}
-        >
-          <TouchableHighlight
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "#39319D",
-              height: 60,
-              width: 60,
-              borderRadius: 25,
-            }}
-            underlayColor="#ccc"
-            onPress={this.navigateHelpScreen}
-          >
-            <Image
-              style={{
-                height: 40,
-                width: 40,
-                // left: "35%",
-                position: "absolute",
-                tintColor: "white",
-              }}
-              source={require("./assets/phone.png")}
             />
           </TouchableHighlight>
         </View>
@@ -339,6 +236,7 @@ class Home extends Component {
             transparent={true}
             visible={this.state.modalVisible}
             onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
               setModalVisible(!this.modalVisible);
             }}
           >
@@ -384,7 +282,7 @@ class Home extends Component {
                   fontWeight: "bold",
                   top: "5%",
                   // alignSelf: "center",
-                  marginHorizontal: "10%",
+                  marginHorizontal: "20%",
                 }}
               >
                 Would you like to change your picture?
@@ -447,10 +345,10 @@ class Home extends Component {
           >
             <ProgressChart
               data={data}
-              width={175}
-              height={190}
-              strokeWidth={9}
-              radius={35}
+              width={135}
+              height={135}
+              strokeWidth={11}
+              radius={60}
               // hideLegend={false}
               chartConfig={{
                 // backgroundColor: "#39319D",
@@ -459,6 +357,10 @@ class Home extends Component {
                 decimalPlaces: 2, // optional, defaults to 2dp
                 color: (opacity = 1) => `rgba(255, 255, 255, 0.4)`,
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                style: {
+                  // borderRadius: 16,
+                  leftMargin: 100,
+                },
               }}
               hideLegend={true}
             />

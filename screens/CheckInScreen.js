@@ -153,7 +153,7 @@ class CheckInScreen extends Component {
             style={styles.image}
             source={require("../assets/iconTop.png")}
           />
-          <Text style={styles.welcomeText}>Daily Chesck-in</Text>
+          <Text style={styles.welcomeText}>Daily Check-in</Text>
           {/* <LineChart
             data={{
               labels: [
@@ -230,10 +230,10 @@ class CheckInScreen extends Component {
         {this.state.todaysCheckIn === null ? (
           <View
             style={{
-              top: "5%",
+              top: "12.5%",
               alignSelf: "center",
-              backgroundColor: "#2B1463",
-              width: "60%",
+              backgroundColor: "#fee486",
+              width: "90%",
               height: "7%",
               borderRadius: 15,
               justifyContent: "center",
@@ -245,7 +245,6 @@ class CheckInScreen extends Component {
               transparent={true}
               visible={this.state.modalVisible}
               onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
                 setModalVisible(!this.modalVisible);
               }}
             >
@@ -286,9 +285,11 @@ class CheckInScreen extends Component {
                 <Text
                   style={{
                     fontSize: 24,
-                    color: "black",
+                    color: "white",
                     fontWeight: "bold",
                     top: "5%",
+                    justifyContent: "center",
+                    width: "90%",
                   }}
                 >
                   How are you feeling today?
@@ -307,29 +308,26 @@ class CheckInScreen extends Component {
                 </Text>
                 <View
                   style={{
-                    // top: 100,
                     alignSelf: "center",
-                    backgroundColor: "#2B1463",
-                    width: "60%",
-                    height: "7%",
+                    backgroundColor: "#fee486",
+                    width: "90%",
+                    height: 50,
                     borderRadius: 15,
-                    // justifyContent: "center",
-                    // alignContent: "center",
-                    // alignSelf: "flex-end",
+                    justifyContent: "center",
                     position: "absolute",
-                    bottom: 25,
+                    bottom: 20,
                   }}
                 >
                   <Pressable onPress={this.submitCheckIn}>
                     <Text
                       style={{
-                        color: "white",
                         textAlign: "center",
                         fontSize: 20,
+                        color: "#333478",
                         // top: 100,
                       }}
                     >
-                      Check-In
+                      SUBMIT
                     </Text>
                   </Pressable>
                 </View>
@@ -341,9 +339,10 @@ class CheckInScreen extends Component {
                   color: "white",
                   textAlign: "center",
                   fontSize: 20,
+                  color: "#333478",
                 }}
               >
-                Check-In
+                CHECK-IN
               </Text>
             </Pressable>
           </View>
