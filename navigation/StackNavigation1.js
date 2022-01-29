@@ -2,6 +2,8 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Tabs from "./tabs";
 import Help from "../screens/HelpScreen";
+
+import Lifestyle from "../screens/LifestyleChangesScreen";
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
@@ -16,6 +18,11 @@ const StackNavigator = () => {
         name="Help"
         component={Help}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Lifestyle"
+        component={Lifestyle}
+        // options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

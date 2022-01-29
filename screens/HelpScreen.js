@@ -11,10 +11,10 @@ import {
 } from "react-native";
 import React from "react";
 
-export default function Register() {
+export default function HelpScreen() {
   return (
     <ImageBackground source={require("../assets/4.jpg")} style={styles.image}>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView>
         <Text>Welcome to X</Text>
 
         <StatusBar style="dark" />

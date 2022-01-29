@@ -230,7 +230,7 @@ class CheckInScreen extends Component {
         {this.state.todaysCheckIn === null ? (
           <View
             style={{
-              top: "12.5%",
+              top: "5%",
               alignSelf: "center",
               backgroundColor: "#fee486",
               width: "90%",

@@ -163,12 +163,12 @@ class CheckInScreen extends Component {
                     fontSize: 18,
                     top: "3%",
                     left: "3%",
-                    height: "60%",
+                    height: "50%", //60%
                   }}
                   multiline={true}
                   textAlignVertical={"top"}
                   maxLength={150}
-                  numberOfLines={10}
+                  numberOfLines={11}
                   placeholder="Enter your affirmation here"
                   onChangeText={(text) => this.setState({ text })}
                   value={this.state.text}

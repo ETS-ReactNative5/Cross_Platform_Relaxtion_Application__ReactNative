@@ -122,6 +122,10 @@ class Home extends Component {
     this.props.navigation.navigate("Help");
   };
 
+  navigateLifestyleScreen = async () => {
+    this.props.navigation.navigate("Lifestyle");
+  };
+
   render() {
     var numberToDisplay = 0;
     var numberOfAchievement = 0;
@@ -424,6 +428,7 @@ class Home extends Component {
             />
           </TouchableHighlight>
         </View>
+
         <Text style={styles.welcomeText}>
           Welcome back {this.state.username}
         </Text>
@@ -437,6 +442,36 @@ class Home extends Component {
             <Text style={styles.infoSmallText}>AFFIRMATIONS</Text>
           </View>
         </View>
+        <View
+          style={{
+            position: "absolute",
+            top: "57.5%",
+          }}
+        >
+          <TouchableHighlight
+            style={{
+              // justifyContent: "center",
+              // alignItems: "center",
+              backgroundColor: "#39319D",
+              height: 30,
+              width: 30,
+              borderRadius: 25,
+            }}
+            underlayColor="#ccc"
+            onPress={this.navigateLifestyleScreen}
+          >
+            <Image
+              style={{
+                height: 30,
+                width: 30,
+                // left: "35%",
+                // position: "absolute",
+                tintColor: "white",
+              }}
+              source={require("./assets/info.png")}
+            />
+          </TouchableHighlight>
+        </View>
         <View style={styles.achievementHeader2}>
           <View
             style={{
@@ -447,10 +482,10 @@ class Home extends Component {
           >
             <ProgressChart
               data={data}
-              width={175}
+              width={160}
               height={190}
               strokeWidth={9}
-              radius={35}
+              radius={30}
               // hideLegend={false}
               chartConfig={{
                 // backgroundColor: "#39319D",
@@ -545,7 +580,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   achievementHeader2: {
-    marginTop: "10%",
+    top: "62.5%",
+    position: "absolute",
     width: "90%",
     height: "28%",
     backgroundColor: "#39319D",
