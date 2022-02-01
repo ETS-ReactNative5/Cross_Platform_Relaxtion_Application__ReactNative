@@ -50,7 +50,6 @@ class Home extends Component {
       const allValues = await AsyncStorage.getAllKeys();
       const checkIns = allValues.filter((value) => value.includes("CHECKIN"));
       const img = await AsyncStorage.getItem("currentImage");
-      console.log(img);
       if (img !== null) {
         this.setState({ image: img });
       }
@@ -114,8 +113,12 @@ class Home extends Component {
   };
 
   changeProfilePicture = async (index) => {
-    var img = `./assets/avatar${index}.png`;
-    this.setState({ image: img });
+    console.log(index);
+    this.setState({ image: index });
+    this.setState({ modalVisible: false });
+
+    // AsyncStorage.setItem("currentImage", "0");
+    AsyncStorage.setItem("currentImage", String(index));
   };
 
   navigateHelpScreen = async () => {
@@ -136,8 +139,15 @@ class Home extends Component {
       numberToDisplay = this.state.affirmations;
       numberOfAchievement = this.state.affirmationsAchievement;
     }
+
+    var numberToDisplay2 = 0;
+    if (numberToDisplay < 10) numberToDisplay2 = numberToDisplay / 10;
+    if (numberToDisplay < 100 && numberToDisplay >= 10)
+      numberToDisplay2 = numberToDisplay / 100;
+    if (numberToDisplay < 1000 && numberToDisplay >= 100)
+      numberToDisplay2 = numberToDisplay / 1000;
     const data = {
-      data: [0.3, 0.3, 0.3],
+      data: [numberToDisplay2, numberToDisplay2, numberToDisplay2],
     };
     var time = moment().toDate();
     time.setHours(10);
@@ -399,7 +409,9 @@ class Home extends Component {
                 data={this.state.images}
                 style={{ top: 50, flexWrap: "wrap", alignSelf: "center" }}
                 renderItem={({ item, index }) => (
-                  <TouchableHighlight onPress={() => alert(index)}>
+                  <TouchableHighlight
+                    onPress={() => this.changeProfilePicture(index)}
+                  >
                     <Image
                       source={item} /* Use item to set the image source */
                       key={index} /* Important to set a key for list items,
@@ -424,7 +436,7 @@ class Home extends Component {
           >
             <Image
               style={styles.avatar}
-              source={require("./assets/avatar0.png")}
+              source={this.state.images[this.state.image]}
             />
           </TouchableHighlight>
         </View>
@@ -483,8 +495,8 @@ class Home extends Component {
             <ProgressChart
               data={data}
               width={160}
-              height={190}
-              strokeWidth={9}
+              height={185}
+              strokeWidth={8}
               radius={30}
               // hideLegend={false}
               chartConfig={{

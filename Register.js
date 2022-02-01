@@ -9,7 +9,7 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Register({ navigation }) {
@@ -25,7 +25,7 @@ export default function Register({ navigation }) {
   function saveUser() {
     let user = text;
     AsyncStorage.setItem("user", user);
-    AsyncStorage.setItem("currentImage", "./assets/avatar0.png");
+    AsyncStorage.setItem("currentImage", "0");
     AsyncStorage.setItem("checkInAchievement-Current", "10");
     AsyncStorage.setItem("affirmationsAchievement", "10");
   }

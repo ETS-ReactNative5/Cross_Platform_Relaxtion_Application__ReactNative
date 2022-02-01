@@ -21,6 +21,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Slider from "@react-native-community/slider";
 import moment from "moment";
+import InfoScreenButton from "./InfoScreenButton";
 
 class CheckInScreen extends Component {
   constructor(props) {
@@ -88,22 +89,12 @@ class CheckInScreen extends Component {
         var dateCheckIn = {};
         if (value !== null) {
           var tempDate = moment(date);
-          console.log(tempDate);
           dateCheckIn[tempDate.format("DD/MM")] = value;
           dates.push(dateCheckIn);
         }
       }
-
       this.setState({ checkIns: dates });
-      this.sortData();
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
-  sortData = async () => {
-    try {
-      console.log("Sort Data");
       var dates = this.state.checkIns;
       var dateKeys = [];
       var valueKeys = [];
@@ -112,11 +103,7 @@ class CheckInScreen extends Component {
         valueKeys.push(parseInt(Object.values(date)[0]));
       });
       this.setState({ dates: dateKeys.reverse() });
-      console.log(this.state.dates);
-      valueKeys = [1, 2, 3, 4, 5];
       this.setState({ values: valueKeys.reverse() });
-
-      console.log(this.state.values);
     } catch (e) {
       console.log(e);
     }
@@ -133,98 +120,67 @@ class CheckInScreen extends Component {
   submitCheckIn = async () => {
     let checkIn = this.state.value;
     var date = moment().format("YYYY-MM-DD");
-    // var date = "2022-01-04";
+    // var date = "2022-01-30";
     date += "-CHECKIN";
     AsyncStorage.setItem(date, checkIn.toString());
-    alert("Sets " + date + " " + checkIn.toString());
     this.setState({ todaysCheckIn: checkIn.toString() });
     this.setState({ modalVisible: false });
-    // window.location.reload(false);
+    this.getOtherData();
   };
 
   render() {
-    console.log("Render");
     var dates = this.state.values;
     var keys = this.state.dates;
     return (
       <View style={styles.container}>
+        <InfoScreenButton
+          navigation={this.props.navigation}
+          nextScreen={"CheckInInfo"}
+        />
         <View style={{ alignItems: "center" }}>
           <Image
             style={styles.image}
             source={require("../assets/iconTop.png")}
           />
+
           <Text style={styles.welcomeText}>Daily Check-in</Text>
-          {/* <LineChart
-            data={{
-              labels: [
-                "Jun 21",
-                "May 21",
-                "Apr 21",
-                "Mar 21",
-                "Feb 21",
-                "Jan 21",
-              ], //Array of labels [Jun 21,May 21,Apr 21,Mar 21,Feb 21,Jan 21]
-              datasets: [
-                {
-                  data: this.state.values, //Array of values
-                  color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
-                  strokeWidth: 2, // optional
+          {this.state.values && this.state.values.length > 0 ? (
+            <LineChart
+              data={{
+                labels: keys,
+                datasets: [
+                  {
+                    data: dates,
+                    strokeWidth: 4,
+                  },
+                ],
+                legend: ["Mood Check-In"],
+              }}
+              width={Dimensions.get("window").width * 0.95} // from react-native
+              height={Dimensions.get("window").height * 0.4}
+              fromZero={1}
+              chartConfig={{
+                backgroundColor: "#08458b",
+                backgroundGradientFrom: "#094185",
+                backgroundGradientTo: "#6288aa",
+                decimalPlaces: 0, // optional, defaults to 2dp
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                style: {
+                  borderRadius: 16,
                 },
-              ],
-            }}
-            width={350}
-            height={320}
-            verticalLabelRotation={70}
-            withInnerLines={false}
-            chartConfig={{
-              backgroundGradientFrom: 0,
-              backgroundGradientFromOpacity: 0,
-              backgroundGradientTo: 0,
-              backgroundGradientToOpacity: 0,
-              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              backgroundColor: (opacity = 0) =>
-                `rgba(255, 255, 255, ${opacity})`,
-              strokeWidth: 2, // optional, default 3
-            }}
-            bezier // type of line chart
-          /> */}
-          <LineChart
-            data={{
-              labels: keys,
-              datasets: [
-                {
-                  // data: this.state.values,
-                  data: [1, 2, 4, 2],
-                  strokeWidth: 4, // optional
+                propsForDots: {
+                  r: "3",
                 },
-              ],
-              legend: ["Mood Check-In"], // optional
-            }}
-            width={Dimensions.get("window").width} // from react-native
-            height={320}
-            yAxisInterval={1} // optional, defaults to 1
-            chartConfig={{
-              backgroundColor: "#08458b",
-              backgroundGradientFrom: "#094185",
-              backgroundGradientTo: "#6288aa",
-              decimalPlaces: 0, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              style: {
+              }}
+              bezier
+              style={{
+                marginVertical: 8,
                 borderRadius: 16,
-              },
-              propsForDots: {
-                r: "3",
-              },
-            }}
-            bezier
-            style={{
-              marginVertical: 8,
-              borderRadius: 16,
-              top: "3%",
-            }}
-          />
+                top: "3%",
+              }}
+            />
+          ) : null}
           <StatusBar style="auto" />
         </View>
         {this.state.todaysCheckIn === null ? (

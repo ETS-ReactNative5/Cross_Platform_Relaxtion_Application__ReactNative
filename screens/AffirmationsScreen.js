@@ -9,9 +9,11 @@ import {
   Dimensions,
   TextInput,
   ScrollView,
+  TouchableHighlight,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import moment from "moment";
+import InfoScreenButton from "./InfoScreenButton";
 
 class CheckInScreen extends Component {
   constructor(props) {
@@ -126,6 +128,10 @@ class CheckInScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <InfoScreenButton
+          navigation={this.props.navigation}
+          nextScreen={"AffirmationsInfo"}
+        />
         <Image style={styles.image} source={require("../assets/iconTop.png")} />
         <View style={styles.heading}>
           <TouchableWithoutFeedback onPress={this.minusDay}>

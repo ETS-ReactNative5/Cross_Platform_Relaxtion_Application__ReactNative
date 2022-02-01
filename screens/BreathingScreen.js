@@ -8,10 +8,11 @@ import {
   Animated,
   ImageBackground,
 } from "react-native";
+import InfoScreenButton from "./InfoScreenButton";
 
 const { width, height } = Dimensions.get("window");
 const circleWidth = width / 2;
-export default function BreathingScreen() {
+export default function BreathingScreen({ navigation }) {
   const move = useRef(new Animated.Value(0)).current;
   const textOpacity = useRef(new Animated.Value(1)).current;
   Animated.loop(
@@ -54,6 +55,7 @@ export default function BreathingScreen() {
   });
   return (
     <ImageBackground source={require("../assets/3.jpg")} style={styles.image}>
+      <InfoScreenButton navigation={navigation} nextScreen={"BreathingInfo"} />
       <Text
         style={{
           position: "absolute",

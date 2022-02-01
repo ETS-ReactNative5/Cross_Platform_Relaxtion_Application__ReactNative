@@ -9,11 +9,14 @@ import {
   ImageBackground,
   SafeAreaView,
   Dimensions,
+  TouchableHighlight,
+  Image,
 } from "react-native";
 import { Video } from "expo-av";
 import * as ScreenOrientation from "expo-screen-orientation";
+import InfoScreenButton from "./InfoScreenButton";
 
-export default function App() {
+export default function YogaScreen({ navigation }) {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   const [modalVisible, setModalVisible] = useState(false);
@@ -31,6 +34,7 @@ export default function App() {
 
   return (
     <ImageBackground source={require("../assets/4.jpg")} style={styles.image}>
+      <InfoScreenButton navigation={navigation} nextScreen="YogaInfo" />
       <SafeAreaView>
         <View
           style={{
@@ -53,7 +57,7 @@ export default function App() {
           >
             <View
               style={{
-                height: 450,
+                height: "40%",
                 width: "90%",
                 backgroundColor: "#493EB8",
                 alignItems: "center",
@@ -131,7 +135,7 @@ export default function App() {
           >
             <View
               style={{
-                height: 450,
+                height: "40%",
                 width: "90%",
                 backgroundColor: "#493EB8",
                 alignItems: "center",

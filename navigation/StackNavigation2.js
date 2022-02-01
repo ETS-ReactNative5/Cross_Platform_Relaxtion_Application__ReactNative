@@ -5,6 +5,10 @@ import Register from "../Register";
 import Tabs from "./tabs";
 import Help from "../screens/HelpScreen";
 import Lifestyle from "../screens/LifestyleChangesScreen";
+import YogaInfo from "../screens/YogaInfoScreen";
+import AffirmationsInfo from "../screens/AffirmationsInfoScreen";
+import BreathingInfoScreen from "../screens/BreathingInfoScreen";
+import CheckInInfoScreen from "../screens/CheckInInfoScreen";
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
@@ -30,6 +34,26 @@ const StackNavigator = () => {
           name="Lifestyle"
           component={Lifestyle}
           // options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="YogaInfo"
+          component={YogaInfo}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AffirmationsInfo"
+          component={AffirmationsInfo}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BreathingInfo"
+          component={BreathingInfoScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CheckInInfo"
+          component={CheckInInfoScreen}
+          options={{ headerShown: false }}
         />
       </Stack.Group>
     </Stack.Navigator>
