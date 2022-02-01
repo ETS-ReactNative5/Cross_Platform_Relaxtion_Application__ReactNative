@@ -19,6 +19,7 @@ import moment from "moment";
 class Home extends Component {
   constructor(props) {
     super(props);
+
     this.getData();
     this.state = {
       modalVisible: false,
@@ -40,20 +41,33 @@ class Home extends Component {
       image: "",
       showTimePicker: false,
       timeReminderSet: true,
+      notificationTimer: "",
+      hours: "",
+      mins: "",
     };
   }
 
   getData = async () => {
     try {
       const user = await AsyncStorage.getItem("user");
-      // await AsyncStorage.removeItem("user");
+      await AsyncStorage.removeItem("user");
       const allValues = await AsyncStorage.getAllKeys();
       const checkIns = allValues.filter((value) => value.includes("CHECKIN"));
       const img = await AsyncStorage.getItem("currentImage");
       if (img !== null) {
         this.setState({ image: img });
       }
-      console.log(this.state.image);
+
+      const notificationTimer = await AsyncStorage.getItem("notificationTimer");
+      if (notificationTimer !== null) {
+        this.setState({ notificationTimer: notificationTimer });
+
+        var hours = notificationTimer.split(":")[0];
+        this.setState({ hours: hours });
+        var mins = notificationTimer.split(":")[1];
+        this.setState({ mins: mins });
+      }
+
       const affirmations = allValues.filter((value) =>
         value.includes("AFFIRMATION")
       );
@@ -113,11 +127,9 @@ class Home extends Component {
   };
 
   changeProfilePicture = async (index) => {
-    console.log(index);
     this.setState({ image: index });
     this.setState({ modalVisible: false });
 
-    // AsyncStorage.setItem("currentImage", "0");
     AsyncStorage.setItem("currentImage", String(index));
   };
 
@@ -150,8 +162,8 @@ class Home extends Component {
       data: [numberToDisplay2, numberToDisplay2, numberToDisplay2],
     };
     var time = moment().toDate();
-    time.setHours(10);
-    time.setMinutes(0);
+    time.setHours(this.state.hours);
+    time.setMinutes(this.state.mins);
     return (
       <View style={styles.container}>
         <Image style={styles.image} source={require("./assets/iconTop.png")} />
@@ -222,36 +234,34 @@ class Home extends Component {
                 Would you like to set a reminder for excercising or breathing
                 excercises?
               </Text>
-              {this.state.timeReminderSet && (
-                <View
+              <View
+                style={{
+                  justifyContent: "center",
+                  top: "25%",
+                }}
+              >
+                <Text
                   style={{
-                    justifyContent: "center",
-                    top: "25%",
+                    textAlign: "center",
+                    fontSize: 20,
+                    color: "white",
+                    fontWeight: "bold",
                   }}
                 >
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      fontSize: 20,
-                      color: "white",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Current Time Set
-                  </Text>
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      fontSize: 34,
-                      color: "white",
-                      fontWeight: "bold",
-                      top: 10,
-                    }}
-                  >
-                    {moment(time).format("HH:mmA")}
-                  </Text>
-                </View>
-              )}
+                  Current Time Set
+                </Text>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: 34,
+                    color: "white",
+                    fontWeight: "bold",
+                    top: 10,
+                  }}
+                >
+                  {moment(time).format("HH:mmA")}
+                </Text>
+              </View>
               <TouchableHighlight
                 onPress={() => this.setState({ showTimePicker: true })}
                 style={{
@@ -285,7 +295,21 @@ class Home extends Component {
                   mode="time"
                   // is24Hour={true}
                   display="default"
-                  onChange={() => this.setState({ showTimePicker: false })}
+                  onChange={(time) => {
+                    // var notificationTimer = time["nativeEvent"]["timestamp"];
+                    // notificationTimer =
+                    //   moment(notificationTimer).format("HH:mm");
+                    // var hours = notificationTimer.split(":")[0];
+                    // var mins = notificationTimer.split(":")[1];
+                    // this.setState({ showTimePicker: false });
+                    // this.setState({ alarmModalVisible: false });
+                    // AsyncStorage.setItem(
+                    //   "notificationTimer",
+                    //   String(notificationTimer)
+                    // );
+                    // this.setState({ hours: hours });
+                    // this.setState({ mins: mins });
+                  }}
                 />
               )}
             </View>

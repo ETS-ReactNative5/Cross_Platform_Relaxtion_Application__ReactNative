@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import React, { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Notifications from "./Notifications";
 
 export default function Register({ navigation }) {
   const [text, onChangeText] = React.useState("");
@@ -28,6 +29,9 @@ export default function Register({ navigation }) {
     AsyncStorage.setItem("currentImage", "0");
     AsyncStorage.setItem("checkInAchievement-Current", "10");
     AsyncStorage.setItem("affirmationsAchievement", "10");
+    AsyncStorage.setItem("notificationTimer", "10:00");
+    var date = new Date();
+    Notifications.schduleNotification(date);
   }
   return (
     <ImageBackground
