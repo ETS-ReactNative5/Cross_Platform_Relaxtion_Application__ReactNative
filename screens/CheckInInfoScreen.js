@@ -20,7 +20,7 @@ export default function CheckInInfoScreen() {
             Self-monitoring along with daily affirmations can really help
             identify and solve a users problems. Daily self-monitoring helps a
             user identify their mood, while daily affirmations help put their
-            mood into words.#
+            mood into words.
           </Text>
           <Text style={styles.text2}>
             {"\u2B24   "}

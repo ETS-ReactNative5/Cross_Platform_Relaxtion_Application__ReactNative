@@ -31,7 +31,7 @@ export default function BreathingInfoScreen() {
           <Text style={styles.text2}>
             {"\u2B24   "}Do breathing exercises at least once or twice daily,
             try to do them at the same time each day to reinforce the habit. Do
-            these exercises for about 10–20 minutes at a time and will greatly
+            these exercises for about 10-20 minutes at a time and will greatly
             improve your mental wellbeing.
           </Text>
         </BlurView>
