@@ -8,10 +8,10 @@ import {
   SafeAreaView,
   Image,
   TouchableWithoutFeedback,
+  Dimensions,
 } from "react-native";
-import React, { useEffect } from "react";
+import React from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Notifications from "./Notifications";
 
 export default function Register({ navigation }) {
   const [text, onChangeText] = React.useState("");
@@ -30,8 +30,6 @@ export default function Register({ navigation }) {
     AsyncStorage.setItem("checkInAchievement-Current", "10");
     AsyncStorage.setItem("affirmationsAchievement", "10");
     AsyncStorage.setItem("notificationTimer", "10:00");
-    var date = new Date();
-    Notifications.schduleNotification(date);
   }
   return (
     <ImageBackground
@@ -39,7 +37,7 @@ export default function Register({ navigation }) {
       style={styles.image}
     >
       <SafeAreaView style={styles.container}>
-        <Text style={styles.heading}>Welcome to X</Text>
+        <Text style={styles.heading}>Welcome to Zen-Zone</Text>
         <View style={styles.headingContainer}>
           <Text style={styles.headingText}>Enter your first name</Text>
           <TextInput
@@ -62,8 +60,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    flex: 1,
-    justifyContent: "center",
+    position: "absolute",
+    left: 0,
+    top: 0,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
   },
   heading: {
     marginTop: "15%",
@@ -100,8 +101,6 @@ const styles = StyleSheet.create({
   arrow: {
     height: 50,
     width: 50,
-    // marginTop: "70%",
-    // marginLeft: "90%",
     transform: [{ rotate: "-90deg" }],
     position: "absolute",
     bottom: 18,

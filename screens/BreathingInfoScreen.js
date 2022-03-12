@@ -11,34 +11,28 @@ export default function BreathingInfoScreen() {
           <Text style={styles.text}>Benefits of Daily Breathing</Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            Virtually any form of exercise, from aerobics to yoga, can act as a
-            stress reliever. If you're not an athlete or even if you're out of
-            shape, you can still make a little exercise go a long way toward
-            stress management.
+            Daily breathing excercises help you relax, lowering the harmful
+            effects of the stress hormone cortisol on your body. It lowers your
+            heart rate and helps lower your blood pressure.
           </Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            It pumps up your endorphins. Physical activity may help bump up the
-            production of your brain's feel-good neurotransmitters reducing
-            stress and anxiety.
+            One of the biggest benefits of daily breathing is reducing stress.
+            Being stressed keeps your immune system from working at full
+            capacity. This can make you more susceptible to numerous conditions.
           </Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            Regular exercise can increase self-confidence, improve your mood,
-            help you relax, and lower symptoms of mild stress and anxiety.
-            Exercise can also improve your sleep, which is often disrupted by
-            stress, depression and anxiety.
+            Creating a routine can be an excellent way to get in the habit of
+            daily breathing exercises. Doing your exercises in the same place
+            every day, somewhere that's peaceful and quiet is one habit to
+            follow.
           </Text>
           <Text style={styles.text2}>
-            {"\u2B24   "}A number of studies have shown that yoga may help
-            reduce stress and anxiety. Yoga can enhance your mood and overall
-            sense of well-being. Yoga might also help you manage your symptoms
-            of depression and anxiety that are due to difficult situations.
-          </Text>
-          <Text style={styles.text2}>
-            {"\u2B24   "}Yoga can help reduce risk factors for chronic diseases,
-            such as heart disease and high blood pressure. Yoga may also help
-            manage low back pain, neck pain and menopause symptoms.
+            {"\u2B24   "}Do breathing exercises at least once or twice daily,
+            try to do them at the same time each day to reinforce the habit. Do
+            these exercises for about 10–20 minutes at a time and will greatly
+            improve your mental wellbeing.
           </Text>
         </BlurView>
 

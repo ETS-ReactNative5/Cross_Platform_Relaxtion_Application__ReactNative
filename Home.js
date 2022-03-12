@@ -296,19 +296,19 @@ class Home extends Component {
                   // is24Hour={true}
                   display="default"
                   onChange={(time) => {
-                    // var notificationTimer = time["nativeEvent"]["timestamp"];
-                    // notificationTimer =
-                    //   moment(notificationTimer).format("HH:mm");
-                    // var hours = notificationTimer.split(":")[0];
-                    // var mins = notificationTimer.split(":")[1];
-                    // this.setState({ showTimePicker: false });
-                    // this.setState({ alarmModalVisible: false });
-                    // AsyncStorage.setItem(
-                    //   "notificationTimer",
-                    //   String(notificationTimer)
-                    // );
-                    // this.setState({ hours: hours });
-                    // this.setState({ mins: mins });
+                    var notificationTimer = time["nativeEvent"]["timestamp"];
+                    notificationTimer =
+                      moment(notificationTimer).format("HH:mm");
+                    var hours = notificationTimer.split(":")[0];
+                    var mins = notificationTimer.split(":")[1];
+                    this.setState({ showTimePicker: false });
+                    this.setState({ alarmModalVisible: false });
+                    AsyncStorage.setItem(
+                      "notificationTimer",
+                      String(notificationTimer)
+                    );
+                    this.setState({ hours: hours });
+                    this.setState({ mins: mins });
                   }}
                 />
               )}

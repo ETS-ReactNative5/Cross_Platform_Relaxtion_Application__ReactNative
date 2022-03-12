@@ -11,34 +11,27 @@ export default function CheckInInfoScreen() {
           <Text style={styles.text}>Benefits of Daily Self-Monitoring</Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            Virtually any form of exercise, from aerobics to yoga, can act as a
-            stress reliever. If you're not an athlete or even if you're out of
-            shape, you can still make a little exercise go a long way toward
-            stress management.
+            Self-monitoring is the cornerstone of improving mental wellbeing and
+            reducing stress and anxiety. Self-monitoring increases awareness,
+            curiosity and consciousness within the user.
           </Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            It pumps up your endorphins. Physical activity may help bump up the
-            production of your brain's feel-good neurotransmitters reducing
-            stress and anxiety.
+            Self-monitoring along with daily affirmations can really help
+            identify and solve a users problems. Daily self-monitoring helps a
+            user identify their mood, while daily affirmations help put their
+            mood into words.#
           </Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            Regular exercise can increase self-confidence, improve your mood,
-            help you relax, and lower symptoms of mild stress and anxiety.
-            Exercise can also improve your sleep, which is often disrupted by
-            stress, depression and anxiety.
+            The graph allows the user to plot and see their mood over the past 7
+            days, giving them a real understanding of mood triggers such as
+            anxiety and stress aswell as when they are ecstatic and feeling
+            themselves.
           </Text>
           <Text style={styles.text2}>
-            {"\u2B24   "}A number of studies have shown that yoga may help
-            reduce stress and anxiety. Yoga can enhance your mood and overall
-            sense of well-being. Yoga might also help you manage your symptoms
-            of depression and anxiety that are due to difficult situations.
-          </Text>
-          <Text style={styles.text2}>
-            {"\u2B24   "}Yoga can help reduce risk factors for chronic diseases,
-            such as heart disease and high blood pressure. Yoga may also help
-            manage low back pain, neck pain and menopause symptoms.
+            {"\u2B24   "}Consecutive good daily check-ins can help a person stay
+            on track with their good mood helping to reduce stress and anxiety.
           </Text>
         </BlurView>
 

@@ -11,34 +11,28 @@ export default function AffirmationsInfoScreen() {
           <Text style={styles.text}>Benefits of Daily Affirmations</Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            Virtually any form of exercise, from aerobics to yoga, can act as a
-            stress reliever. If you're not an athlete or even if you're out of
-            shape, you can still make a little exercise go a long way toward
-            stress management.
+            To be successful with positive affirmations, you must be able to
+            regulate your thoughts. This is an important skill to learn because
+            once you have control of your mind, you can immediately stop all
+            negative ideas. Instead of allowing negative ideas and dread to
+            fester in your mind, you should take steps to rectify the issue by
+            reorganizing your thoughts.
           </Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            It pumps up your endorphins. Physical activity may help bump up the
-            production of your brain's feel-good neurotransmitters reducing
-            stress and anxiety.
+            Positive daily affirmations are a sufficient way to prepare for
+            stressful conditions such as public speaking, interviews, etc,
+            because they will keep you in the right shape to face any situation.
           </Text>
           <Text style={styles.text2}>
             {"\u2B24   "}
-            Regular exercise can increase self-confidence, improve your mood,
-            help you relax, and lower symptoms of mild stress and anxiety.
-            Exercise can also improve your sleep, which is often disrupted by
-            stress, depression and anxiety.
+            Affirmations have assisted many individuals in making significant
+            changes that changed their lives for the better.
           </Text>
           <Text style={styles.text2}>
-            {"\u2B24   "}A number of studies have shown that yoga may help
-            reduce stress and anxiety. Yoga can enhance your mood and overall
-            sense of well-being. Yoga might also help you manage your symptoms
-            of depression and anxiety that are due to difficult situations.
-          </Text>
-          <Text style={styles.text2}>
-            {"\u2B24   "}Yoga can help reduce risk factors for chronic diseases,
-            such as heart disease and high blood pressure. Yoga may also help
-            manage low back pain, neck pain and menopause symptoms.
+            {"\u2B24   "}Affirmations are among the most crucial tools that you
+            can use regarding stressful situations. Affirmations should always
+            be practised using a positive tone.
           </Text>
         </BlurView>
 

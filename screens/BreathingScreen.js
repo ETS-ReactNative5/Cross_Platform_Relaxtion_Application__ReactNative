@@ -19,7 +19,7 @@ export default function BreathingScreen({ navigation }) {
     Animated.sequence([
       Animated.parallel([
         Animated.timing(textOpacity, {
-          toValue: 5,
+          toValue: 1,
           duration: 300,
           useNativeDriver: true,
         }),
@@ -32,7 +32,7 @@ export default function BreathingScreen({ navigation }) {
       Animated.parallel([
         Animated.timing(textOpacity, {
           delay: 100,
-          toValue: 4,
+          toValue: 0,
           duration: 300,
           useNativeDriver: true,
         }),
@@ -74,14 +74,12 @@ export default function BreathingScreen({ navigation }) {
             width: circleWidth,
             height: circleWidth,
             ...StyleSheet.absoluteFill,
-            // alignItems: "center",
             justifyContent: "center",
             opacity: textOpacity,
           }}
         >
           <Text
             style={{
-              // alignSelf: "center",
               marginHorizontal: "33%",
               fontSize: 24,
               fontWeight: "800",
@@ -106,7 +104,7 @@ export default function BreathingScreen({ navigation }) {
               fontWeight: "800",
             }}
           >
-            Exhale.
+            Exhale
           </Text>
         </Animated.View>
         {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => {

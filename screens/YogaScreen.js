@@ -44,7 +44,7 @@ export default function YogaScreen({ navigation }) {
             height: 50,
             borderRadius: 15,
             justifyContent: "center",
-            marginVertical: "20%",
+            marginVertical: "15%",
           }}
         >
           <Modal
