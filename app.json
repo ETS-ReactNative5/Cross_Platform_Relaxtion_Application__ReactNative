@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "NewFYP",
-    "slug": "NewFYP",
+    "name": "ZenZone",
+    "slug": "ZenZone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "ZenZone.APK"
     },
     "web": {
       "favicon": "./assets/favicon.png"

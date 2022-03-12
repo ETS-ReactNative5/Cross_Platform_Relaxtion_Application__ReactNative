@@ -50,7 +50,7 @@ class Home extends Component {
   getData = async () => {
     try {
       const user = await AsyncStorage.getItem("user");
-      await AsyncStorage.removeItem("user");
+      // await AsyncStorage.removeItem("user");
       const allValues = await AsyncStorage.getAllKeys();
       const checkIns = allValues.filter((value) => value.includes("CHECKIN"));
       const img = await AsyncStorage.getItem("currentImage");
