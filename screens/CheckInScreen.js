@@ -22,6 +22,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Slider from "@react-native-community/slider";
 import moment from "moment";
 import InfoScreenButton from "./InfoScreenButton";
+import ZenZone from "./ZenZone";
 
 class CheckInScreen extends Component {
   constructor(props) {
@@ -133,6 +134,7 @@ class CheckInScreen extends Component {
     var keys = this.state.dates;
     return (
       <View style={styles.container}>
+        <ZenZone />
         <InfoScreenButton
           navigation={this.props.navigation}
           nextScreen={"CheckInInfo"}

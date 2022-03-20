@@ -37,7 +37,7 @@ export default function Register({ navigation }) {
       style={styles.image}
     >
       <SafeAreaView style={styles.container}>
-        <Text style={styles.heading}>Welcome to Zen-Zone</Text>
+        <Text style={styles.heading}>Welcome to ZenZone</Text>
         <View style={styles.headingContainer}>
           <Text style={styles.headingText}>Enter your first name</Text>
           <TextInput
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    height: "100%",
   },
   heading: {
     marginTop: "15%",

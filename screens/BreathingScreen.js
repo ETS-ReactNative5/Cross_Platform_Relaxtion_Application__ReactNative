@@ -82,7 +82,7 @@ export default function BreathingScreen({ navigation }) {
             style={{
               marginHorizontal: "33%",
               fontSize: 24,
-              fontWeight: "800",
+              fontWeight: "bold",
             }}
           >
             Inhale
@@ -101,7 +101,7 @@ export default function BreathingScreen({ navigation }) {
           <Text
             style={{
               fontSize: 24,
-              fontWeight: "800",
+              fontWeight: "bold",
             }}
           >
             Exhale
@@ -116,7 +116,7 @@ export default function BreathingScreen({ navigation }) {
             <Animated.View
               key={item}
               style={{
-                opacity: 0.15,
+                opacity: 0.11,
                 backgroundColor: "purple",
                 width: circleWidth,
                 height: circleWidth,

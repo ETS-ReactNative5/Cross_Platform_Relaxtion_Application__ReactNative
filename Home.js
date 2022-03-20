@@ -15,6 +15,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ProgressChart } from "react-native-chart-kit";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import moment from "moment";
+import ZenZone from "./screens/ZenZone";
 
 class Home extends Component {
   constructor(props) {
@@ -165,6 +166,7 @@ class Home extends Component {
     time.setMinutes(this.state.mins);
     return (
       <View style={styles.container}>
+        <ZenZone />
         <Image style={styles.image} source={require("./assets/iconTop.png")} />
         <View
           style={{
@@ -480,16 +482,16 @@ class Home extends Component {
         <View
           style={{
             position: "absolute",
-            top: "57.5%",
+            top: "52.5%",
           }}
         >
           <TouchableHighlight
             style={{
-              // justifyContent: "center",
-              // alignItems: "center",
+              justifyContent: "center",
+              alignItems: "center",
               backgroundColor: "#39319D",
-              height: 30,
-              width: 30,
+              height: 60,
+              width: 60,
               borderRadius: 25,
             }}
             underlayColor="#ccc"
@@ -497,13 +499,13 @@ class Home extends Component {
           >
             <Image
               style={{
-                height: 30,
-                width: 30,
+                height: 40,
+                width: 40,
                 // left: "35%",
-                // position: "absolute",
+                position: "absolute",
                 tintColor: "white",
               }}
-              source={require("./assets/info.png")}
+              source={require("./assets/tips.png")}
             />
           </TouchableHighlight>
         </View>
