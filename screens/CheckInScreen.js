@@ -120,7 +120,7 @@ class CheckInScreen extends Component {
   submitCheckIn = async () => {
     let checkIn = this.state.value;
     var date = moment().format("YYYY-MM-DD");
-    // var date = "2022-01-30";
+    // var date = "2022-03-11";
     date += "-CHECKIN";
     AsyncStorage.setItem(date, checkIn.toString());
     this.setState({ todaysCheckIn: checkIn.toString() });
