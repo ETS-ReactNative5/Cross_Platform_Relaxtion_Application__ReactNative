@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { LogBox } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -6,6 +7,7 @@ import StackNavigator from "./navigation/StackNavigation1";
 import StackNavigator2 from "./navigation/StackNavigation2";
 const Stack = createNativeStackNavigator();
 
+LogBox.ignoreAllLogs();
 class App extends Component {
   state = {
     username: null,

@@ -188,7 +188,7 @@ export default function YogaScreen({ navigation }) {
                 color: "#333478",
               }}
             >
-              Excercise
+              Exercise
             </Text>
           </Pressable>
         </View>
